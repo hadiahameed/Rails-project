@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<p>
+<div>
   <b>Name:</b>
   <%= @product.name %>
-</p>
+</div>
 
-<p>
+<div>
   <b>Description:</b>
   <%= @product.description %>
-</p>
+</div>
 
+<div>
+  <b>Image:</b>
+  <% @product.attachments.each do |attachment| %>
+    <div>
+      <%= image_tag attachment.photo.url(:medium) %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
