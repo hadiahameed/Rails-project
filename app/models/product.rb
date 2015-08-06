@@ -6,5 +6,7 @@ class Product < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :attachments, allow_destroy: true
   belongs_to :user
+  validates :name, presence: true
+  validates :description, presence: :true, length: { minimum: 10 }
 
 end
