@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order.page(params[:page]).per(Product::PER_PAGE_NUMBER)
+    @products = Product.page(params[:page]).per(Product::PER_PAGE_NUMBER)
 
 
     respond_to do |format|
