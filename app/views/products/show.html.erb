@@ -19,5 +19,11 @@
   <% end %>
 </div>
 
+<h2>Comments:</h2>
+<%= render @comments %>
+
+<h2> Add a comment </h2>
+<%= render "comments/form" %>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

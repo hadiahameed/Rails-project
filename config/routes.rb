@@ -2,7 +2,9 @@ Store::Application.routes.draw do
 
   devise_for :users
 
-  resources :products
+  resources :products do
+    resources :comments, only: [:create]
+  end
   root :to => 'products#index'
 
   # The priority is based upon order of creation:
