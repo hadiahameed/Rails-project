@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 
-  PER_PAGE_NUMBER = 3
+  PER_PAGE_NUMBER = 20
   attr_accessible :description, :name, :attachments_attributes
   has_many :attachments, as: :attachable
   has_many :comments, dependent: :destroy
