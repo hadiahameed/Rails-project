@@ -24,6 +24,7 @@
 
 <h2> Add a comment </h2>
 <%= render "comments/form" %>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<% if is_allowed(@product.user.id) %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>
