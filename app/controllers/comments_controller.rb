@@ -4,11 +4,14 @@ class CommentsController < ApplicationController
   def create
     @comment = @product.comments.new(params[:comment])
     @comment.user_id = current_user.id
-
-    if @comment.save
-      redirect_to @product, notice: "Your comment has been added"
-    else
-      render :new
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to(@product, :notice => 'Your comment has been added.') }
+        format.js
+      else
+        format.html { redirect_to @product }
+        format.js
+      end
     end
   end
 
