@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to @product, notice: "Comment Added"
+      redirect_to @product, notice: "Your comment has been added"
     else
       render :new
     end
