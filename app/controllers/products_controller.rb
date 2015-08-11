@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_product, only: [:show, :edit, :update, :destroy]
+  before_filter :validate_product_user!, only: [:edit, :update, :destroy]
   # GET /products
   # GET /products.json
   def index
@@ -15,7 +17,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments
 
@@ -39,7 +40,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @product = Product.find(params[:id])
   end
 
   # POST /products
@@ -62,8 +62,6 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
-    @product = Product.find(params[:id])
-
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -78,12 +76,21 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
 
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def get_product
+    @product = Product.find(params[:id])
+  end
+
+  def validate_product_user!
+    redirect_to root_path, alert: "Invalid Access" unless @product.user_id == current_user.id
   end
 end
