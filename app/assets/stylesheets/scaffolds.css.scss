@@ -12,7 +12,8 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: serif, verdana, arial, helvetica, sans-serif;
+  font-style: normal;
+  font-family: Times, "Times New Roman", Georgia, serif;
   font-size: 25px;
   line-height: 26px;
   padding: 10px;
@@ -20,6 +21,7 @@ p, ol, ul, td {
 }
 
 ol, ul, td, th, tr {
+  font-family: serif, verdana, arial, helvetica, sans-serif;
   font-size: 18px;
 }
 
