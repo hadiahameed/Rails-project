@@ -1,33 +1,33 @@
 <div id="notice"><%= notice %></div>
-
-<div>
-  <b>Name:</b>
-  <%= @product.name.titleize %>
+<div class="page-header">
+  <h1>Art & Literary Products</h1>
 </div>
 
-<div>
-  <b>Description:</b>
-  <%= @product.description %>
+<div class="product-name">
+  <h2><strong><%= @product.name.titleize %></strong></h2>
 </div>
-
-<div>
-  <b>Image:</b>
-  <% @product.attachments.each do |attachment| %>
-    <div>
+<div class="form-actions">
+  <div class="product-description">
+    <h3>Description:</h3>
+    <p><%= @product.description %></p>
+  </div>
+  <div class="product-attachments">
+    <h3>Image:</h3>
+    <% @product.attachments.each do |attachment| %>
       <%= image_tag attachment.photo.url(:medium) %>
+    <% end %>
+  </div>
+  <div class="product-reviews">
+    <h3>Comments:</h3>
+    <div class='comment-page'>
+      <%= render @comments %>
     </div>
-  <% end %>
+    <h2> Add a comment </h2>
+    <%= render 'comments/form' %>
+  </div>
 </div>
 
-<h2>Comments:</h2>
-
-<div class='comment-page' >
-  <%= render @comments %>
-</div>
-
-<h2> Add a comment </h2>
-<%= render "comments/form" %>
 <% if is_allowed(@product.user.id) %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to t('.edit', default: t("helpers.links.edit")), edit_product_path(@product), class: 'btn btn-sm btn-success' %>
 <% end %>
-<%= link_to 'Back', products_path %>
+<%= link_to t('.back', default: t("helpers.links.back")), products_path, class:'btn btn-sm btn-info'  %>

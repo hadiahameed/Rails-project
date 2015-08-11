@@ -1,6 +1,10 @@
-<h1>Art & Literary Products</h1>
-<%= paginate @products %>
-<table>
+<div class="page=header">
+  <h1>Art & Literary Products</h1>
+</div>
+
+<%= link_to "Add a new product", new_product_path, class: 'btn btn-primary btn-info new-button' %>
+
+<table class="table table-striped table-hover">
   <tr>
     <th>Id</th>
     <th>Name</th>
@@ -8,25 +12,24 @@
     <th>User</th>
     <th></th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.id %></td>
-    <td><%= product.name.titleize %></td>
-    <td><%= product.description %></td>
-    <td><%= product.user.email %></td>
-    <td><%= link_to 'Show', product %></td>
-    <% if is_allowed(product.user.id) %>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.name.titleize, product_path(product) %></td>
+        <td><%= product.description %></td>
+        <td><%= product.user.email %></td>
+        <% if is_allowed(product.user.id) %>
+          <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-success' %></td>
+          <td><%= link_to 'Delete', product_path(product), method: :delete, data: { confirm:'Are you sure?' }, class: 'btn btn-primary btn-danger' %></td>
+        <% end %>
+        <td></td>
+        <td></td>
+      </tr>
     <% end %>
-  </tr>
-<% end %>
+  </tbody>
 </table>
-
+<%= paginate @products %>
 <br />
 
-<%= link_to 'New Product', new_product_path %>

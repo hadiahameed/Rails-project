@@ -1,4 +1,4 @@
-<%= nested_form_for @product, html: {multipart: true} do |f| %>
+<%= nested_form_for @product, html: { multipart: true } do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -21,10 +21,13 @@
   </div>
   <%= f.fields_for :attachments do |attachment| %>
    <%= attachment.file_field :photo %>
-   <%= attachment.link_to_remove "Remove this attachment" %>
+   <%= attachment.link_to_remove "Remove this attachment", class:'btn btn-default btn-sm' %>
   <% end %>
-  <p><%= f.link_to_add "Add new attachment", :attachments %></p>
-  <div class="actions">
-    <%= f.submit %>
+  <div><%= f.link_to_add "Add new attachment", :attachments, class:'btn btn-default btn-sm' %></div>
+
+  <div class="form-actions">
+    <%= f.submit nil, class:'btn btn-primary' %>
+    <%= link_to 'Cancel', products_path, class:'btn' %>
   </div>
+
 <% end %>
