@@ -38,7 +38,6 @@ Store::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
@@ -65,16 +64,13 @@ Store::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default charset: "utf-8"
-  ActionMailer::Base.smtp_settings = {
-            enable_starttls_auto: true,
-            address: 'smtp.gmail.com',
-            port: 587,
-            tls: true,
-            domain: 'gmail.com', #you can also use google.com
-            authentication: :plain,
-            user_name: 'hadiahameeduet@gmail.com',
-            password: 'square63'
- }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'hadiahameeduet@gmail.com',
+    password: 'square63'
+  }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
