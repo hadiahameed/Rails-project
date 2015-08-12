@@ -28,8 +28,10 @@ gem 'nested_form'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 
-gem 'activerecord-postgresql-adapter'
-
+group :production do
+  gem 'activerecord-postgresql-adapter'
+  gem 'pg'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
