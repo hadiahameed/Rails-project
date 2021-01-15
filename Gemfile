@@ -17,7 +17,7 @@ group :assets do
   gem 'less-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer'
   gem 'node'
 
   gem 'uglifier', '>= 1.0.3'
@@ -30,7 +30,7 @@ gem 'nested_form'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 
-gem 'pg', '0.12.2'
+gem 'pg', '0.15.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
