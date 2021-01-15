@@ -73,7 +73,7 @@ Store::Application.configure do
     domain: 'gmail.com', #you can also use google.com
     authentication: :plain,
     user_name: 'hadiahameeduet@gmail.com',
-    password: 'square63'
+    password: 'square63!'
  }
 
   # Log the query plan for queries taking more than this (works
