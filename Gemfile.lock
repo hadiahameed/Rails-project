@@ -76,6 +76,7 @@ GEM
     multi_json (1.15.0)
     mysql2 (0.5.3)
     nested_form (0.3.2)
+    nio4r (2.5.4)
     node (1.0.0)
     orm_adapter (0.5.0)
     paperclip (4.3.7)
@@ -86,6 +87,8 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.15.0)
     polyglot (0.3.5)
+    puma (5.1.1)
+      nio4r (~> 2.0)
     rack (1.4.7)
     rack-cache (1.12.1)
       rack (>= 0.4)
@@ -165,6 +168,7 @@ DEPENDENCIES
   node
   paperclip
   pg (= 0.15.0)
+  puma
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   therubyracer

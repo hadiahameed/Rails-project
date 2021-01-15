@@ -29,7 +29,7 @@ gem 'paperclip'
 gem 'nested_form'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
-
+gem 'puma'
 gem 'pg', '0.15.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
