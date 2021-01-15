@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.6.3"
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -16,7 +17,8 @@ group :assets do
   gem 'less-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', "< 0.12.3", :platform => :ruby
+  #gem 'therubyracer', :platform => :ruby
+  gem 'node'
 
   gem 'uglifier', '>= 1.0.3'
 end
